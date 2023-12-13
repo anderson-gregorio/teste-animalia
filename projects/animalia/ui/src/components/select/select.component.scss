@@ -1,0 +1,102 @@
+@import "./../../styles/variable.scss";
+
+@mixin subtext {
+  display: block;
+  font-family: var(--font-family);
+  font-size: calc(var(--font-size) * 0.75);
+  font-weight: $select-font-weight;
+}
+
+@mixin disabled {
+  color: var(--text-color);
+  opacity: var(--text-opacity-disabled);
+}
+
+.field-select {
+  &__label {
+    display: block;
+    font-family: var(--font-family);
+    font-size: calc(var(--font-size) * 0.875);
+    font-weight: $select-font-weight;
+    margin-bottom: var(--spacing-xs);
+
+    &__required {
+      font-weight: 400;
+      opacity: var(--text-opacity-disabled);
+    }
+
+    &--disabled {
+      @include disabled;
+    }
+  }
+
+  &__select {
+    background-color: $select-background;
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    padding: var(--padding);
+    width: 100%;
+
+    &:hover {
+      cursor: text;
+    }
+
+    &:focus {
+      outline-color: var(--outline-color-focused);
+      outline-offset: $outline-offset;
+      outline-width: $outline-width;
+    }
+
+    &:disabled {
+      background-color: var(--background-form-disabled);
+      cursor: no-drop;
+    }
+  }
+
+  &__help {
+    margin-top: var(--spacing-xs);
+    min-height: 1rem;
+
+    &__text {
+      @include subtext;
+
+      &--disabled {
+        @include disabled;
+      }
+    }
+  }
+
+  &__error {
+    align-items: center;
+    display: none;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-xs);
+    min-height: 1rem;
+
+    svg {
+      fill: var(--select-danger);
+    }
+
+    &__text {
+      @include subtext;
+      color: var(--select-danger);
+    }
+  }
+}
+
+:host.ng-invalid.ng-dirty {
+  .field-select {
+    &__select {
+      border-color: var(--select-danger);
+    }
+
+    &__help {
+      display: none;
+    }
+
+    &__error {
+      display: flex;
+    }
+  }
+}

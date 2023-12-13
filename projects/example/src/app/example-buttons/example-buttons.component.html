@@ -1,0 +1,59 @@
+<h1>Buttons</h1>
+
+<h2>Playground</h2>
+
+<div class="buttons">
+  <ani-button [disabled]="disabled" [type]="type" (a-click)="handleClick()">
+    Button
+  </ani-button>
+</div>
+
+<div class="playground">
+  <span class="playground__option">Disabled</span>
+  <div class="playground__value">
+    <input type="checkbox" [(ngModel)]="disabled">
+  </div>
+</div>
+
+<div class="playground">
+  <span class="playground__option">Type</span>
+  <div class="playground__value">
+    <select [(ngModel)]="type">
+      <option value="primary">primary</option>
+      <option value="secundary">secundary</option>
+      <option value="tertiary">tertiary</option>
+      <option value="danger-primary">danger-primary</option>
+      <option value="danger-secondary">danger-secondary</option>
+    </select>
+  </div>
+</div>
+
+<div class="playground">
+  <span class="playground__option">Events</span>
+  <div class="playground__value">
+    <pre class="code">{{events | json }}</pre>
+  </div>
+</div>
+
+<h2>Customização via Tokens</h2>
+
+<div class="buttons">
+  <ani-button class="custom-button">
+    Custom
+  </ani-button>
+</div>
+
+<pre class="code" [innerHTML]="customCssShow"></pre>
+
+<h2>Button + Icon</h2>
+
+<div class="buttons">
+  <ani-button>
+    <i class='bx bx-cloud-upload'></i>
+    <span>Adicionar</span>
+  </ani-button>
+
+  <ani-button>
+    <i class='bx bx-cloud-upload'></i>
+  </ani-button>
+</div>

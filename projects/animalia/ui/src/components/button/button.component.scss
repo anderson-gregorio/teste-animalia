@@ -1,0 +1,86 @@
+@import "./../../styles/variable.scss";
+
+@mixin themeButton($background, $border, $color) {
+  background-color: $background;
+  border-color: $border;
+  color: $color;
+}
+
+@mixin disabledButton($background, $border) {
+  background-color: $background;
+  border-color: $border;
+}
+
+button {
+  align-items: center;
+  border-radius: var(--border-radius);
+  border-style: $button-border-style;
+  border-width: var(--border-width);
+  cursor: pointer;
+  display: flex;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  gap: $button-gap-content;
+  justify-content: center;
+  letter-spacing: $button-latter-spacing;
+  line-height: var(--line-height);
+  min-height: $button-min-height;
+  padding: var(--padding);
+
+  &:focus {
+    outline-color: var(--outline-color-focused);
+    outline-offset: $outline-offset;
+    outline-width: $outline-width;
+  }
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+button.primary {
+  @include themeButton($primary, $primary, $white);
+
+  &:disabled {
+    @include disabledButton(#ccc, #ccc);
+  }
+}
+
+button.secundary {
+  @include themeButton($white, $primary, $primary);
+
+  &:disabled {
+    @include themeButton($white, #ccc, #ccc);
+  }
+}
+
+button.tertiary {
+  @include themeButton($white, $white, $primary);
+
+  &:disabled {
+    @include themeButton($white, $white, #ccc);
+  }
+}
+
+button.danger-primary {
+  @include themeButton($danger, $danger, $white);
+
+  &:disabled {
+    @include disabledButton(#ccc, #ccc);
+  }
+}
+
+button.danger-secondary {
+  @include themeButton($white, $danger, $danger);
+
+  &:disabled {
+    @include themeButton($white, #ccc, #ccc);
+  }
+}

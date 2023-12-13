@@ -1,0 +1,30 @@
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 16px;
+}
+
+.code {
+  background-color: black;
+  color: yellowgreen;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.playground {
+  align-items: center;
+  display: flex;
+  margin-bottom: 0.75rem;
+
+  &__option {
+    display: block;
+    width: 25%;
+  }
+}
+
+.custom-button {
+  --font-size: 3rem;
+  --font-weight: 700;
+  --padding: 1rem;
+}

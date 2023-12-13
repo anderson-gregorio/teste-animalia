@@ -1,0 +1,71 @@
+<h1>Select</h1>
+
+<h2>Playground</h2>
+
+<div class="selects">
+  <form [formGroup]="form">
+    <ani-select [label]="label" [placeholder]="placeholder" [helpText]="helpText" [errorText]="errorText"
+      [required]="required" [disabled]="disabled" [options]="selectOptionList" helpText="Help text"
+      formControlName="selectedItem"></ani-select>
+  </form>
+</div>
+
+<div class="playground">
+  <span class="playground__option">Label</span>
+  <div class="playground__value">
+    <input type="text" id="label" [(ngModel)]="label">
+  </div>
+</div>
+
+<div class="playground">
+  <span class="playground__option">Placeholder</span>
+  <div class="playground__value">
+    <input type="text" id="placeholder" [(ngModel)]="placeholder">
+  </div>
+</div>
+
+<div class="playground">
+  <span class="playground__option">Help text</span>
+  <div class="playground__value">
+    <input type="text" id="helpText" [(ngModel)]="helpText">
+  </div>
+</div>
+
+<div class="playground">
+  <span class="playground__option">Error text</span>
+  <div class="playground__value">
+    <input type="text" id="errorText" [(ngModel)]="errorText">
+  </div>
+</div>
+
+<div class="playground">
+  <span class="playground__option">Required</span>
+  <div class="playground__value">
+    <input type="checkbox" [(ngModel)]="required">
+  </div>
+</div>
+
+<div class="playground">
+  <span class="playground__option">Disabled</span>
+  <div class="playground__value">
+    <input type="checkbox" [(ngModel)]="disabled">
+  </div>
+</div>
+
+<div class="playground" *ngIf="selectedItem">
+  <span class="playground__option">Valor do item selecionado</span>
+  <div class="playground__value">
+    {{ selectedItem}}
+  </div>
+</div>
+
+<h2>Customização via Tokens</h2>
+
+<div class="selects">
+  <form [formGroup]="formCustom">
+    <ani-select label="Opções" [options]="selectOptionList" class="custom-button"
+      formControlName="selectedItem"></ani-select>
+  </form>
+</div>
+
+<pre class="code" [innerHTML]="customCssShow"></pre>
